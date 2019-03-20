@@ -3,13 +3,15 @@
 ##Date 3/20/2019
 ##IPMI setup for Dell PowerEdge C6420 servers
 
+set -euo pipefail
+
 NETWORK=10
 CLUSTER_OCTET=41
 NODE_START=71
 NODE_END=71
 CLUSTER_NAME='lr6'
 USER_NAME='username'
-PASSWORD='password'
+PASSWORD=$IPMI_PASSWD
 
 for node in $(seq $NODE_START $NODE_END); do
      NODE_NUM=$(printf %04d $node)
