@@ -6,12 +6,13 @@
 set -euo pipefail
 
 NETWORK=10
-CLUSTER_OCTET=41
-NODE_START=71
-NODE_END=71
-CLUSTER_NAME='lr6'
+CLUSTER_OCTET='NUM'
+NODE_START='NUM'
+NODE_END='NUM'
+CLUSTER_NAME='_name'
 USER_NAME='username'
-PASSWORD=$IPMI_PASSWD
+PASSWORD=$1
+NETMASK='Netmask'
 
 for node in $(seq $NODE_START $NODE_END); do
      NODE_NUM=$(printf %04d $node)
@@ -22,7 +23,7 @@ for node in $(seq $NODE_START $NODE_END); do
 
        ssh n$NODE_NUM.$CLUSTER_NAME ipmitool lan set 1 ipaddr $NETWORK.2.$CLUSTER_OCTET.$node
        
-       ssh n$NODE_NUM.$CLUSTER_NAME ipmitool lan set 1 netmask 255.255.0.0
+       ssh n$NODE_NUM.$CLUSTER_NAME ipmitool lan set 1 netmask $NETMASK
        
        ssh n$NODE_NUM.$CLUSTER_NAME ipmitool lan print|grep $NETWORK.2.$CLUSTER_OCTECT
 
