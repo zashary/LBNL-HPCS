@@ -13,7 +13,7 @@ NODE_END='NUM'
 CLUSTER_NAME='_name'
 ##IPMI Credentials
 USER_NAME='username'
-PASSWORD=$1
+PASSWORD='Password'
 
 NETMASK='Netmask'
 
