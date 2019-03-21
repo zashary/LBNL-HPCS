@@ -5,13 +5,16 @@
 
 set -euo pipefail
 
+##IP Address 
 NETWORK=10
 CLUSTER_OCTET='NUM'
 NODE_START='NUM'
 NODE_END='NUM'
 CLUSTER_NAME='_name'
+##IPMI Credentials
 USER_NAME='username'
 PASSWORD=$1
+
 NETMASK='Netmask'
 
 for node in $(seq $NODE_START $NODE_END); do
